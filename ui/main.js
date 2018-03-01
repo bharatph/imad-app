@@ -4,7 +4,7 @@ var thing = document.getElementById('thing');
 thing.onclick = function(){
     var marginLeft = 0;
     var interval = setInterval(function(){
-        marginLeft += 10;
+        marginLeft += 1;
         thing.style.marginLeft = marginLeft + "px";
-    }, 200);
+    }, 50);
 };
