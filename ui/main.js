@@ -7,5 +7,4 @@ thing.onclick = function(){
         marginLeft += 10;
         thing.style.marginLeft = marginLeft + "px";
     }, 200);
-    thing.style.marginLeft = "100px";
 };
