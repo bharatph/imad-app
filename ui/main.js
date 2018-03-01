@@ -1,6 +1,6 @@
 console.log('Loaded!');
-var element = document.getElementByid('thing');
+var thing = document.getElementById('thing');
 
-function doSomething(){
-    
-}
+thing.onclick = function(){
+    thing.marginLeft += 100;
+};
