@@ -5,8 +5,52 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var lols = {
+  'lol1' : {
+  head : "Article One",
+  msg: `
+  <p>
+    Message of the article one
+  </p>
+  `
+  },
+  'lol2' : {
+  head : "Article Two",
+  msg: `
+  <p>
+    Message of the article one
+  </p>
+  `
+  },
+  'lol3' : {
+    head : "Article Three",
+    msg: `
+    <p>
+      Message of the article one
+    </p>
+    `
+    }
+};
+
+function createTemplate(data){
+  var head = data.head;
+  var msg = data.msg;
+  var htmlTemplate = `
+  <h4>${head}</h4>
+  <div>
+    ${msg}
+  </div>
+  `;
+  return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/ui/:lolName', function(req, res) {
+  var lolName = req.params.lolName;
+  res.send(createTemplate(lols[lolName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
